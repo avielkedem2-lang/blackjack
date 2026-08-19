@@ -2,6 +2,7 @@ import express from "express"
 import cors from "cors"
 import dotenv from "dotenv/config"
 import routerPlayer from "./routes/playerRouter.js"
+import { connection } from "./db/mongodb.js"
 
 
 
@@ -20,7 +21,10 @@ app.use("/", routerPlayer)
 
 
 
-
-app.listen(PORT,  () => {
+async function run() {
+    await connection()
+    app.listen(PORT,  () => {
     console.log("The server run...");
 })
+}
+run()
