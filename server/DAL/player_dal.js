@@ -5,7 +5,7 @@ import db from "../db/mongodb.js";
 const collection = await db.collection("player")
 
 
-async function createPlayer(body) {
+async function insertPlayer(body) {
     const res = await collection.insertOne(body)
     return {_id: res.insertedId, ...body}
 }
@@ -19,6 +19,6 @@ async function findPlayerById(id) {
 
 
 export default {
-    createPlayer,
+    insertPlayer,
     findPlayerById,
 } 
