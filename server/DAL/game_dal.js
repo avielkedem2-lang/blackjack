@@ -12,12 +12,24 @@ async function insertGame(body) {
 
 
 
-async function findGameById(playerId) {
+async function findAllGameById(playerId) {
     return await collection.find({playerId: playerId}).toArray()
+}
+
+
+
+async function updateGame(id, newGame) {
+    return await collection.updateOne({_id: new ObjectId(id)}, { $set: { ...newGame }})
+}
+
+async function findGameById(playerId) {
+    return await collection.findOne({playerId: playerId})
 }
 
 
 export default {
     insertGame,
+    findAllGameById,
+    updateGame,
     findGameById,
 }

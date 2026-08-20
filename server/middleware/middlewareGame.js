@@ -11,6 +11,6 @@ export const checkBet = (req, res, next) => {
 export const getHeaders = (req, res, next) => {
     const playerId = req.headers["x-player-id"]
     if (!playerId) return res.status(400).json("bad request")
-    req.player = playerId
+    req.playerId = playerId
     next()
 }

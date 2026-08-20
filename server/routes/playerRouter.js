@@ -9,7 +9,7 @@ const router = express.Router()
 
 router.post("/start-game", async (req, res) => {
     try {
-        const data = await createPlayer(req.body.player)
+        const data = await createPlayer()
         res.status(201).json(data)
     } catch (err) {
         console.log(err);

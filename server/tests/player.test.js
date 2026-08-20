@@ -12,7 +12,7 @@ describe("function createPlayer", () => {
         const player = { _id: "6a859b01d013bb215ddecd43", chips: 1000, createdAt: 5 }
         mock.method(
             playerDal,
-            "insertPlayer",(player) => { return { _id: "6a859b01d013bb215ddecd43", chips: 1000, createdAt: 5 } }
+            "insertPlayer",() => { return { _id: "6a859b01d013bb215ddecd43", chips: 1000, createdAt: 5 } }
         )
         const newPlayer = await createPlayer()
         assert.deepStrictEqual(newPlayer, { playerId: player._id, chips: player.chips })

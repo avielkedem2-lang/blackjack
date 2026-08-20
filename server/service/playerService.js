@@ -10,7 +10,7 @@ export function createError(status, message) {
 
 
 
-export async function createPlayer(player) {
+export async function createPlayer() {
     const chips = 1000
     const createdAt = new Date()
     const body = { chips, createdAt }
