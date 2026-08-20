@@ -3,6 +3,8 @@ import cors from "cors"
 import dotenv from "dotenv/config"
 import routerPlayer from "./routes/playerRouter.js"
 import { connection } from "./db/mongodb.js"
+import routerGame from "./routes/gameRoute.js"
+
 
 
 
@@ -15,6 +17,7 @@ app.use(express.json())
 app.use(cors())
 
 app.use("/", routerPlayer)
+app.use("/", routerGame)
 
 
 

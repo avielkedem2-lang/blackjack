@@ -2,7 +2,7 @@ import playerDal from "../DAL/player_dal.js";
 
 
 
-function createError(status, message) {
+export function createError(status, message) {
     const err = new Error(message)
     err.status = status
     return err
