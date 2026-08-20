@@ -15,7 +15,7 @@ async function findPlayerById(id) {
 }
 
 async function updatePlayer(id, chips) {
-    return await collection.updateOne({_id: new ObjectId(id)}, {$set : {chips}})
+    return await collection.updateOne({_id: new ObjectId(id)}, {$set : {chips}}, {})
 }
 
 
