@@ -22,8 +22,6 @@ export async function startRound(playerId, bet) {
         status: game.status,
         chips: player.chips - bet
     }
-
-
 }
 
 
@@ -136,6 +134,29 @@ export async function stand(playerId) {
 }
 
 
+
+
+
+export async function getRound(playerId) {
+    const player = await playerDal.findPlayerById(playerId)
+    const games = await gameDal.findAllGameById(playerId)
+    if (!player) throw createError(404, "player not fond")  
+    let game = null;
+    games.forEach((g) => {
+        if (g.status === "in_progress") {
+            game = g
+        }
+    });
+
+    return {
+        roundId: game._id,
+        playerCards: game.playerCards,
+        dealerCards: game.dealerCards[0],
+        status: game.status,
+        chips: player.chips - game.bet
+    }
+
+}
 
 
 

@@ -17,6 +17,4 @@ describe("function createPlayer", () => {
         const newPlayer = await createPlayer()
         assert.deepStrictEqual(newPlayer, { playerId: player._id, chips: player.chips })
     })
-
-
 })
